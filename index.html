@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نادي القوة | Iron Power Gym</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#0d0d11;color:#f2f2f5}
+a{text-decoration:none;color:inherit}
+/* ===== Header ===== */
+header{position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(13,13,17,.92);backdrop-filter:blur(10px);border-bottom:1px solid #26262e}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;gap:16px;padding:14px 20px}
+.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700}
+.logo-mark{width:38px;height:38px;border-radius:10px;background:#ff4d4f;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:22px;height:22px;color:#fff}
+.nav-links{display:flex;gap:22px;margin-inline-start:auto;font-size:15px;color:#a8a8b3}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:#ff4d4f;color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+.nav-cta:hover{filter:brightness(1.12)}
+/* ===== Hero ===== */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:url('images/hero.jpg') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(13,13,17,.96) 25%,rgba(13,13,17,.55))}
+.hero-inner{position:relative;max-width:1200px;margin:auto;padding:120px 20px 60px;width:100%}
+.hero-tag{display:inline-block;background:rgba(255,77,79,.15);border:1px solid rgba(255,77,79,.5);color:#ffb3b5;padding:6px 16px;border-radius:999px;font-size:13px;margin-bottom:20px}
+.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.15;font-weight:800;max-width:640px}
+.hero h1 span{color:#ff4d4f}
+.hero p{color:#c9c9d2;font-size:18px;max-width:520px;margin:18px 0 30px;line-height:1.8}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:.2s}
+.btn-red{background:#ff4d4f;color:#fff}
+.btn-red:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid #3a3a44;color:#f2f2f5}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-stats{display:flex;gap:36px;margin-top:50px;flex-wrap:wrap}
+.hstat .n{font-size:32px;font-weight:800;color:#ff4d4f}
+.hstat .l{color:#a8a8b3;font-size:14px}
+/* ===== Sections ===== */
+section{max-width:1200px;margin:auto;padding:80px 20px}
+.sec-title{font-size:32px;font-weight:800;margin-bottom:8px}
+.sec-sub{color:#a8a8b3;margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:#16161c;border:1px solid #26262e;border-radius:16px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#3a3a44}
+.card img{width:100%;height:190px;object-fit:cover;display:block}
+.card-body{padding:20px}
+.card-body h3{font-size:19px;margin-bottom:8px}
+.card-body p{color:#a8a8b3;font-size:14px;line-height:1.7}
+/* ===== Pricing ===== */
+.price-card{background:#16161c;border:1px solid #26262e;border-radius:16px;padding:30px;text-align:center;position:relative}
+.price-card.feat{border-color:#ff4d4f}
+.badge{position:absolute;top:-13px;right:50%;transform:translateX(50%);background:#ff4d4f;color:#fff;font-size:12px;padding:5px 16px;border-radius:999px;font-weight:600}
+.price-card h3{font-size:20px;margin-bottom:6px}
+.price-card .p{font-size:40px;font-weight:800;color:#ff4d4f;margin:14px 0}
+.price-card .p small{font-size:15px;color:#a8a8b3;font-weight:400}
+.price-card ul{list-style:none;margin:20px 0;text-align:right;color:#c9c9d2;font-size:14px}
+.price-card li{padding:9px 0;border-bottom:1px solid #22222a}
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}.nav-links{display:none}}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.ci{display:flex;gap:14px;align-items:center}
+.ci-ic{width:46px;height:46px;border-radius:12px;background:rgba(255,77,79,.12);border:1px solid rgba(255,77,79,.4);display:flex;align-items:center;justify-content:center;color:#ff4d4f;flex:none}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.contact-form input,.contact-form textarea{background:#16161c;border:1px solid #2a2a33;border-radius:10px;padding:13px 16px;color:#f2f2f5;font-size:15px;font-family:inherit;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#ff4d4f}
+footer{border-top:1px solid #22222a;text-align:center;padding:28px;color:#6d6d78;font-size:14px}
+/* ===== Admin app (same as widget) ===== */
+.app-wrap{display:none}
+.app-wrap.show{display:block}
+.admin-bar{display:flex;align-items:center;gap:12px;padding:80px 20px 0;max-width:1200px;margin:auto;flex-wrap:wrap}
+.admin-bar h2{font-size:24px}
+.admin-bar .sp{flex:1}
+.gym-app{direction:rtl;background:#101014;border-radius:16px;overflow:hidden;border:1px solid #2a2a33;margin:20px auto;max-width:1200px}
+.gym-app button,.gym-app input,.gym-app select{font:inherit;color:inherit}
+.g-head{display:flex;align-items:center;gap:12px;padding:16px 20px;background:linear-gradient(135deg,#1a1a22,#101014);border-bottom:1px solid #2a2a33;flex-wrap:wrap}
+.g-logo{width:44px;height:44px;border-radius:12px;background:#ff4d4f;display:flex;align-items:center;justify-content:center;flex:none}
+.g-logo svg{width:26px;height:26px;color:#fff}
+.g-title{font-size:20px;font-weight:600}
+.g-sub{font-size:12px;color:#6d6d78}
+.g-head-sp{flex:1}
+.g-date{font-size:13px;color:#a8a8b3;background:#1e1e26;border:1px solid #2a2a33;padding:8px 14px;border-radius:10px}
+.g-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:16px 20px}
+.g-stat{background:#17171d;border:1px solid #2a2a33;border-radius:12px;padding:14px 16px;position:relative;overflow:hidden}
+.g-stat::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--sc,#4d9fff)}
+.g-stat .n{font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15}
+.g-stat .l{font-size:13px;color:#a8a8b3;margin-top:2px}
+.g-alerts{margin:0 20px 16px;display:flex;flex-direction:column;gap:8px}
+.g-alert{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-size:14px;border:1px solid}
+.g-alert.warn{background:rgba(255,159,46,.12);border-color:rgba(255,159,46,.35);color:#ffcf99}
+.g-alert.danger{background:rgba(255,77,79,.12);border-color:rgba(255,77,79,.35);color:#ffb3b5}
+.g-alert svg{width:18px;height:18px;flex:none}
+.g-toolbar{display:flex;gap:10px;align-items:center;padding:0 20px 16px;flex-wrap:wrap}
+.g-search{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#17171d;border:1px solid #2a2a33;border-radius:10px;padding:0 12px}
+.g-search svg{width:17px;height:17px;color:#6d6d78;flex:none}
+.g-search input{flex:1;background:none;border:none;outline:none;padding:11px 0;font-size:14px;color:#f2f2f5}
+.g-search input::placeholder{color:#6d6d78}
+.g-filters{display:flex;gap:6px;flex-wrap:wrap}
+.g-fbtn{background:#17171d;border:1px solid #2a2a33;color:#a8a8b3;border-radius:999px;padding:9px 14px;font-size:13px;cursor:pointer;transition:.15s}
+.g-fbtn:hover{color:#f2f2f5;border-color:#6d6d78}
+.g-fbtn.on{background:#f2f2f5;color:#101014;border-color:#f2f2f5;font-weight:600}
+.g-btn{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:10px;padding:10px 16px;font-size:14px;cursor:pointer;transition:.15s;font-weight:600}
+.g-btn svg{width:17px;height:17px}
+.g-btn.primary{background:#ff4d4f;color:#fff}
+.g-btn.primary:hover{filter:brightness(1.12)}
+.g-btn.ghost{background:#17171d;border:1px solid #2a2a33;color:#a8a8b3}
+.g-btn.ghost:hover{color:#f2f2f5;border-color:#6d6d78}
+.g-tablewrap{margin:0 20px 20px;background:#17171d;border:1px solid #2a2a33;border-radius:12px;overflow-x:auto}
+table.g-table{width:100%;border-collapse:collapse;min-width:760px}
+.g-table th{font-size:12px;color:#6d6d78;text-align:start;padding:12px 14px;border-bottom:1px solid #2a2a33;white-space:nowrap}
+.g-table td{padding:12px 14px;font-size:14px;border-bottom:1px solid #2a2a33;white-space:nowrap;vertical-align:middle}
+.g-table tr:last-child td{border-bottom:none}
+.g-table tbody tr{transition:.12s}
+.g-table tbody tr:hover{background:#1e1e26}
+.g-name{display:flex;align-items:center;gap:10px}
+.g-ava{width:34px;height:34px;border-radius:50%;background:#1e1e26;border:1px solid #2a2a33;display:flex;align-items:center;justify-content:center;flex:none;color:#a8a8b3}
+.g-ava svg{width:18px;height:18px}
+.g-name .nm{font-weight:600}
+.g-name .ph{font-size:12px;color:#6d6d78;direction:ltr;text-align:end}
+.chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 10px;font-size:12px;border:1px solid}
+.chip.ok{background:rgba(61,220,132,.12);border-color:rgba(61,220,132,.35);color:#9df0c3}
+.chip.warn{background:rgba(255,159,46,.12);border-color:rgba(255,159,46,.35);color:#ffcf99}
+.chip.bad{background:rgba(255,77,79,.12);border-color:rgba(255,77,79,.35);color:#ffb3b5}
+.chip.debt{background:rgba(255,77,79,.16);border-color:#ff4d4f;color:#ffb3b5;font-weight:600}
+.chip.paid{background:rgba(61,220,132,.12);border-color:rgba(61,220,132,.35);color:#9df0c3}
+.row-actions{display:flex;gap:4px;opacity:0;transition:opacity .15s}
+.g-table tr:hover .row-actions,.g-table tr:focus-within .row-actions{opacity:1}
+.ibtn{width:32px;height:32px;border-radius:8px;border:1px solid #2a2a33;background:#17171d;color:#a8a8b3;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:.12s}
+.ibtn svg{width:16px;height:16px}
+.ibtn:hover{color:#f2f2f5;border-color:#6d6d78}
+.ibtn.del:hover{color:#ff4d4f;border-color:#ff4d4f}
+.ibtn.pay:hover{color:#3ddc84;border-color:#3ddc84}
+.g-empty{padding:56px 20px;text-align:center;color:#6d6d78}
+.g-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:200;padding:16px}
+.g-overlay.show{display:flex}
+.g-modal{background:#17171d;border:1px solid #2a2a33;border-radius:14px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.g-mhead{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #2a2a33}
+.g-mhead h3{margin:0;font-size:17px;font-weight:600}
+.g-mbody{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g-field{display:flex;flex-direction:column;gap:6px}
+.g-field.full{grid-column:1/-1}
+.g-field label{font-size:13px;color:#a8a8b3}
+.g-field input,.g-field select{background:#1e1e26;border:1px solid #2a2a33;border-radius:10px;padding:10px 12px;font-size:14px;outline:none;color:#f2f2f5;width:100%}
+.g-field input:focus,.g-field select:focus{border-color:#6d6d78}
+.g-check{display:flex;align-items:center;gap:8px;background:#1e1e26;border:1px solid #2a2a33;border-radius:10px;padding:10px 12px;cursor:pointer;font-size:14px;color:#a8a8b3}
+.g-check input{accent-color:#3ddc84;width:16px;height:16px}
+.g-mfoot{display:flex;gap:10px;padding:16px 20px;border-top:1px solid #2a2a33}
+.g-mfoot .g-btn{flex:1;justify-content:center}
+.g-toast{position:fixed;bottom:20px;right:50%;transform:translateX(50%);background:#f2f2f5;color:#101014;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;display:none;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.g-toast.show{display:block}
+@media(max-width:640px){.g-mbody{grid-template-columns:1fr}.g-stats{padding:12px 14px;gap:8px}.g-toolbar,.g-alerts{padding:0 14px 12px;margin:0 14px 12px}.g-tablewrap{margin:0 14px 16px}}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5v5M7.2 7.5v9M16.8 7.5v9M20 9.5v5M7.2 12h9.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></div>نادي القوة</div>
+    <nav class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#programs">البرامج</a>
+      <a href="#pricing">الأسعار</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+    <button class="nav-cta" onclick="document.getElementById('adminApp').classList.toggle('show');window.scrollTo({top:document.getElementById('adminApp').offsetTop-70,behavior:'smooth'})">لوحة الإدارة</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero" id="home">
+  <div class="hero-inner">
+    <span class="hero-tag">انضم الآن — اشتراكك الأول بخصم 20%</span>
+    <h1>اصنع أقوى نسخة <span>من نفسك</span></h1>
+    <p>أحدث الأجهزة الرياضية، مدربون محترفون، وبرامج تدريب مخصصة لكل مستوى. نادي القوة — وجهتك الأولى للياقة وكمال الأجسام.</p>
+    <div class="hero-btns">
+      <button class="btn btn-red" onclick="document.getElementById('adminApp').classList.add('show');document.getElementById('gAdd').click()">سجّل اشتراكك الآن</button>
+      <a class="btn btn-ghost" href="#pricing">شاهد الأسعار</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">+500</div><div class="l">عضو نشط</div></div>
+      <div class="hstat"><div class="n">15+</div><div class="l">مدرب محترف</div></div>
+      <div class="hstat"><div class="n">24/7</div><div class="l">مفتوح طوال الأسبوع</div></div>
+      <div class="hstat"><div class="n">1200㎡</div><div class="l">مساحة التدريب</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Programs -->
+<section id="programs">
+  <h2 class="sec-title">برامجنا التدريبية</h2>
+  <p class="sec-sub">اختر البرنامج المناسب لهدفك</p>
+  <div class="cards">
+    <div class="card"><img src="images/train2.jpg" alt="كمال أجسام"><div class="card-body"><h3>كمال أجسام</h3><p>برامج بناء العضلات للمبتدئين والمحترفين مع متابعة دقيقة للأداء والتغذية.</p></div></div>
+    <div class="card"><img src="images/train1.jpg" alt="لياقة بدنية"><div class="card-body"><h3>لياقة وحرق الدهون</h3><p>تمارين كارديو وتمارين مقاومة عالية الكثافة لخسارة الوزن وشد الجسم.</p></div></div>
+    <div class="card"><img src="images/kettle.jpg" alt="كروس فيت"><div class="card-body"><h3>كروس فيت وقوة</h3><p>تدريبات وظيفية مكثفة تطور القوة والتحمل والسرعة في آن واحد.</p></div></div>
+    <div class="card"><img src="images/dumbbells.jpg" alt="ملاكمة"><div class="card-body"><h3>ملاكمة وكيك بوكسينغ</h3><p>تعلم فنون القتال ورفع اللياقة البدنية مع مدربين أبطال محليين.</p></div></div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing">
+  <h2 class="sec-title">أسعار الاشتراكات</h2>
+  <p class="sec-sub">باقات مرنة تناسب الجميع</p>
+  <div class="cards">
+    <div class="price-card"><h3>شهري</h3><div class="p">2,500 <small>د.ج / شهر</small></div><ul><li>دخول كامل لجميع الأجهزة</li><li>برنامج تدريبي أساسي</li><li>متابعة مرتين شهرياً</li></ul><button class="btn btn-ghost" style="width:100%" onclick="document.getElementById('adminApp').classList.add('show');document.getElementById('gAdd').click()">اشترك الآن</button></div>
+    <div class="price-card feat"><span class="badge">الأكثر طلباً</span><h3>3 أشهر</h3><div class="p">6,500 <small>د.ج / 3 أشهر</small></div><ul><li>كل مزايا الباقة الشهرية</li><li>برنامج غذائي مخصص</li><li>متابعة أسبوعية مع مدرب</li></ul><button class="btn btn-red" style="width:100%" onclick="document.getElementById('adminApp').classList.add('show');document.getElementById('gAdd').click()">اشترك الآن</button></div>
+    <div class="price-card"><h3>سنوي</h3><div class="p">22,000 <small>د.ج / سنة</small></div><ul><li>أفضل قيمة — وفّر 27%</li><li>مدرب شخصي خاص</li><li>دخول مجاني لدروس المجموعات</li></ul><button class="btn btn-ghost" style="width:100%" onclick="document.getElementById('adminApp').classList.add('show');document.getElementById('gAdd').click()">اشترك الآن</button></div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="sec-title">تواصل معنا</h2>
+  <p class="sec-sub">فريقنا جاهز للإجابة على استفساراتك</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci"><div class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></div><div><b>العنوان</b><br><span style="color:#a8a8b3;font-size:14px">شارع الرياضة، وسط المدينة</span></div></div>
+      <div class="ci"><div class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg></div><div><b>الهاتف</b><br><span style="color:#a8a8b3;font-size:14px;direction:ltr;display:inline-block">0550 12 34 56</span></div></div>
+      <div class="ci"><div class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg></div><div><b>البريد الإلكتروني</b><br><span style="color:#a8a8b3;font-size:14px">info@ironpower-gym.com</span></div></div>
+      <div class="ci"><div class="ci-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6l4.2 2.5-.8 1.3L11 13.5V7h2v5.6z" fill="currentColor"/></svg></div><div><b>أوقات العمل</b><br><span style="color:#a8a8b3;font-size:14px">يومياً من 6 صباحاً حتى 11 مساءً</span></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault();alert('تم إرسال رسالتك، سنتواصل معك قريباً');this.reset()">
+      <input placeholder="الاسم الكامل" required>
+      <input placeholder="رقم الهاتف" required>
+      <textarea rows="4" placeholder="اكتب استفسارك هنا..." required></textarea>
+      <button class="btn btn-red" type="submit">إرسال الرسالة</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Admin panel ===== -->
+<div class="admin-bar" id="adminApp">
+  <h2>لوحة إدارة الأعضاء</h2>
+  <div class="sp"></div>
+  <span style="color:#6d6d78;font-size:13px">تُحفظ البيانات تلقائياً في متصفحك</span>
+</div>
+
+<div class="gym-app" id="adminPanel" style="margin-top:0">
+  <div class="g-head">
+    <div class="g-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9.5v5M7.2 7.5v9M16.8 7.5v9M20 9.5v5M7.2 12h9.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></div>
+    <div><div class="g-title">إدارة الاشتراكات</div><div class="g-sub">تسجيل الأعضاء ومتابعة الديون والانتهاء</div></div>
+    <div class="g-head-sp"></div>
+    <div class="g-date" id="gToday"></div>
+  </div>
+
+  <div class="g-stats">
+    <div class="g-stat" style="--sc:#4d9fff"><div class="n" id="stTotal">0</div><div class="l">إجمالي الأعضاء</div></div>
+    <div class="g-stat" style="--sc:#3ddc84"><div class="n" id="stActive">0</div><div class="l">اشتراك نشط</div></div>
+    <div class="g-stat" style="--sc:#ff9f2e"><div class="n" id="stSoon">0</div><div class="l">ينتهي خلال 5 أيام</div></div>
+    <div class="g-stat" style="--sc:#ff4d4f"><div class="n" id="stExpired">0</div><div class="l">اشتراك منتهٍ</div></div>
+    <div class="g-stat" style="--sc:#ff4d4f"><div class="n" id="stDebt">0</div><div class="l">الديون غير المدفوعة</div></div>
+    <div class="g-stat" style="--sc:#3ddc84"><div class="n" id="stIncome">0</div><div class="l">الإيرادات المدفوعة</div></div>
+  </div>
+
+  <div class="g-alerts" id="gAlerts"></div>
+
+  <div class="g-toolbar">
+    <div class="g-search"><svg viewBox="0 0 24 24"><path d="M11.5 3C16.1944 3 20 6.80558 20 11.5C20 13.523 19.2933 15.381 18.1132 16.8404L21.1364 19.8636C21.4879 20.2151 21.4879 20.7849 21.1364 21.1364C20.7849 21.4879 20.2151 21.4879 19.8636 21.1364L16.8404 18.1132C15.381 19.2933 13.523 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3ZM11.5 18.2C15.2003 18.2 18.2 15.2003 18.2 11.5C18.2 7.79969 15.2003 4.8 11.5 4.8C7.79969 4.8 4.8 7.79969 4.8 11.5C4.8 15.2003 7.79969 18.2 11.5 18.2Z" fill="currentColor"/></svg><input id="gSearch" placeholder="ابحث بالاسم أو رقم الهاتف..."></div>
+    <div class="g-filters" id="gFilters">
+      <button class="g-fbtn on" data-f="all">الكل</button>
+      <button class="g-fbtn" data-f="active">نشط</button>
+      <button class="g-fbtn" data-f="soon">ينتهي قريباً</button>
+      <button class="g-fbtn" data-f="expired">منتهٍ</button>
+      <button class="g-fbtn" data-f="debt">مديونون</button>
+    </div>
+    <button class="g-btn ghost" id="gExport"><svg viewBox="0 0 24 24"><path d="M12 3C12.4971 3 12.9 3.40294 12.9 3.9V10.1739L15.3636 7.71036C15.7151 7.35885 16.2849 7.35885 16.6364 7.71036C16.9879 8.0618 16.9879 8.6324 16.6364 8.9838L12.6364 12.9838C12.2849 13.3352 11.7151 13.3352 11.3636 12.9838L7.36364 8.9838C7.01211 8.6324 7.01211 8.0618 7.36364 7.71036C7.71515 7.35885 8.28485 7.35885 8.63636 7.71036L11.1 10.1739V3.9C11.1 3.40294 11.5029 3 12 3ZM4.5 14.1C4.99706 14.1 5.4 14.5029 5.4 15V17.1C5.4 17.5971 5.80294 18 6.3 18H17.7C18.1971 18 18.6 17.5971 18.6 17.1V15C18.6 14.5029 19.0029 14.1 19.5 14.1C19.9971 14.1 20.4 14.5029 20.4 15V17.1C20.4 18.5909 19.1909 19.8 17.7 19.8H6.3C4.80914 19.8 3.6 18.5909 3.6 17.1V15C3.6 14.5029 4.00294 14.1 4.5 14.1Z" fill="currentColor"/></svg>تصدير Excel</button>
+    <button class="g-btn primary" id="gAdd"><svg viewBox="0 0 24 24"><path d="M12.0684 2.03418C12.5654 2.03421 12.9687 2.43755 12.9688 2.93457V11.0996H21.0654C21.5625 11.0996 21.9658 11.503 21.9658 12C21.9658 12.497 21.5625 12.9004 21.0654 12.9004H12.9688V21.0654C12.9687 21.5624 12.5654 21.9658 12.0684 21.9658C11.5713 21.9658 11.168 21.5625 11.168 21.0654V12.9004H2.93457C2.43751 12.9004 2.03418 12.4971 2.03418 12C2.03418 11.5029 2.43751 11.0996 2.93457 11.0996H11.168V2.93457C11.168 2.43753 11.5713 2.03418 12.0684 2.03418Z" fill="currentColor"/></svg>تسجيل عضو جديد</button>
+  </div>
+
+  <div class="g-tablewrap">
+    <table class="g-table">
+      <thead><tr><th>العضو</th><th>الرياضة</th><th>بداية الاشتراك</th><th>نهاية الاشتراك</th><th>المتبقي</th><th>السعر الشهري</th><th>الدفع</th><th>إجراءات</th></tr></thead>
+      <tbody id="gBody"></tbody>
+    </table>
+    <div class="g-empty" id="gEmpty" style="display:none"><div style="font-size:40px;margin-bottom:10px;opacity:.4">🏋️</div><div>لا يوجد أعضاء مطابقون — سجّل أول عضو لك</div></div>
+  </div>
+</div>
+
+<div class="g-overlay" id="ovForm">
+  <div class="g-modal">
+    <div class="g-mhead"><h3 id="mTitle">تسجيل عضو جديد</h3><button class="ibtn" onclick="closeForm()"><svg viewBox="0 0 24 24"><path d="M5.70711 5.70711C5.31658 5.31658 4.68342 5.31658 4.29289 5.70711C3.90237 6.09763 3.90237 6.7308 4.29289 7.12132L10.5858 13.4142L4.29289 19.7071C3.90237 20.0976 3.90237 20.7308 4.29289 21.1213C4.68342 21.5118 5.31658 21.5118 5.70711 21.1213L12 14.8284L18.2929 21.1213C18.6834 21.5118 19.3166 21.5118 19.7071 21.1213C20.0976 20.7308 20.0976 20.0976 19.7071 19.7071L13.4142 13.4142L19.7071 7.12132C20.0976 6.7308 20.0976 6.09763 19.7071 5.70711C19.3166 5.31658 18.6834 5.31658 18.2929 5.70711L12 12L5.70711 5.70711Z" fill="currentColor"/></svg></button></div>
+    <div class="g-mbody">
+      <div class="g-field full"><label>الاسم الكامل *</label><input id="fName" placeholder="مثال: أحمد بن علي"></div>
+      <div class="g-field"><label>رقم الهاتف</label><input id="fPhone" placeholder="0550 00 00 00" style="direction:ltr;text-align:right"></div>
+      <div class="g-field"><label>نوع الرياضة</label><select id="fSport"><option>كمال أجسام</option><option>لياقة بدنية</option><option>ملاكمة</option><option>كيك بوكسينغ</option><option>كروس فيت</option><option>سباحة</option><option>أخرى</option></select></div>
+      <div class="g-field"><label>تاريخ بداية الاشتراك</label><input id="fStart" type="date"></div>
+      <div class="g-field"><label>السعر الشهري</label><input id="fPrice" type="number" min="0" placeholder="2500"></div>
+      <div class="g-field full"><label class="g-check" style="border:none;background:none;padding:0;color:#a8a8b3"><input type="checkbox" id="fPaid" checked> تم دفع قيمة الاشتراك (بدون دين)</label></div>
+    </div>
+    <div class="g-mfoot"><button class="g-btn ghost" onclick="closeForm()">إلغاء</button><button class="g-btn primary" id="fSave">حفظ العضو</button></div>
+  </div>
+</div>
+
+<div class="g-overlay" id="ovDel">
+  <div class="g-modal" style="max-width:380px">
+    <div class="g-mhead"><h3>حذف العضو</h3></div>
+    <div style="padding:20px;font-size:14px;color:#a8a8b3" id="delMsg"></div>
+    <div class="g-mfoot"><button class="g-btn ghost" onclick="document.getElementById('ovDel').classList.remove('show')">تراجع</button><button class="g-btn primary" style="background:#ff4d4f" id="delYes">حذف نهائي</button></div>
+  </div>
+</div>
+
+<div class="g-toast" id="gToast"></div>
+
+<footer>نادي القوة © 2026 — جميع الحقوق محفوظة | صُنع بشغف للرياضة</footer>
+
+<script>
+var DB_KEY='gym_pro_members_v1', DEFAULT_CUR='د.ج';
+function $(id){return document.getElementById(id)}
+function todayISO(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function addMonths(iso,n){var d=new Date(iso+'T00:00:00');d.setMonth(d.getMonth()+n);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function daysLeft(end){var t=new Date(todayISO()+'T00:00:00'),e=new Date(end+'T00:00:00');return Math.round((e-t)/86400000)}
+function fmtDate(iso){if(!iso)return'—';var p=iso.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+function statusOf(m){var d=daysLeft(m.end);if(d<0)return'expired';if(d<=5)return'soon';return'active'}
+var members=JSON.parse(localStorage.getItem(DB_KEY)||'null');
+if(!members){var t=todayISO();members=[];save()}
+function save(){localStorage.setItem(DB_KEY,JSON.stringify(members))}
+var filter='all',query='';
+function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function render(){
+  var active=0,soon=0,expired=0,debt=0,income=0;
+  members.forEach(function(m){var s=statusOf(m);if(s==='active')active++;else if(s==='soon')soon++;else expired++;if(!m.paid)debt+=Number(m.price)||0;else income+=Number(m.price)||0});
+  $('stTotal').textContent=members.length;$('stActive').textContent=active;$('stSoon').textContent=soon;$('stExpired').textContent=expired;$('stDebt').textContent=debt.toLocaleString('ar-DZ')+' '+DEFAULT_CUR;$('stIncome').textContent=income.toLocaleString('ar-DZ')+' '+DEFAULT_CUR;
+  var al=[];
+  var exp=members.filter(function(m){return statusOf(m)==='expired'});
+  var sn=members.filter(function(m){return statusOf(m)==='soon'});
+  var db=members.filter(function(m){return!m.paid});
+  if(exp.length)al.push('<div class="g-alert danger"><svg viewBox="0 0 24 24"><path d="M11.9996 7C11.5026 7 11.0996 7.36985 11.0996 7.82609V14.1739C11.0996 14.6301 11.5026 15 11.9996 15C12.4967 15 12.8996 14.6301 12.8996 14.1739V7.82609C12.8996 7.36985 12.4967 7 11.9996 7Z" fill="currentColor"/><path d="M12.8996 17.1006C12.8996 17.5974 12.4968 18.001 11.9992 18.001C11.5024 18.001 11.0996 17.5974 11.0996 17.1006C11.0996 16.6038 11.5024 16.2002 11.9992 16.2002C12.4968 16.2002 12.8996 16.6038 12.8996 17.1006Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5108 3.5501C13.3946 1.61676 10.6041 1.61676 9.48786 3.5501L1.69363 17.0501C0.577423 18.9834 1.97269 21.4001 4.20511 21.4001H19.7936C22.026 21.4001 23.4212 18.9834 22.305 17.0501L14.5108 3.5501ZM11.0467 4.4501C11.4701 3.71676 12.5286 3.71676 12.952 4.4501L20.7462 17.9501C21.1696 18.6834 20.6403 19.6001 19.7936 19.6001H4.20511C3.35833 19.6001 2.82909 18.6834 3.25248 17.9501L11.0467 4.4501Z" fill="currentColor"/></svg>انتهى اشتراك ' + exp.length + (exp.length===1?' عضو: ':' أعضاء: ') + exp.map(function(m){return esc(m.name)}).join('، ') + ' — يجب التجديد</div>');
+  if(sn.length)al.push('<div class="g-alert warn"><svg viewBox="0 0 24 24"><path d="M11.0996 7.32609C11.0996 6.86985 11.5026 6.5 11.9996 6.5C12.4967 6.5 12.8996 6.86985 12.8996 7.32609V13.6739C12.8996 14.1301 12.4967 14.5 11.9996 14.5C11.5026 14.5 11.0996 14.1301 11.0996 13.6739V7.32609Z" fill="currentColor"/><path d="M11.9992 17.501C12.4968 17.501 12.8996 17.0974 12.8996 16.6006C12.8996 16.1038 12.4968 15.7002 11.9992 15.7002C11.5024 15.7002 11.0996 16.1038 11.0996 16.6006C11.0996 17.0974 11.5024 17.501 11.9992 17.501Z" fill="currentColor"/><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM20.2 12C20.2 7.47126 16.5287 3.8 12 3.8C7.47126 3.8 3.8 7.47126 3.8 12C3.8 16.5287 7.47126 20.2 12 20.2C16.5287 20.2 20.2 16.5287 20.2 12Z" fill="currentColor"/></svg>' + sn.length + (sn.length===1?' اشتراك ينتهي خلال 5 أيام: ':' اشتراكات تنتهي خلال 5 أيام: ') + sn.map(function(m){return esc(m.name)+' ('+daysLeft(m.end)+' يوم)'}).join('، ') + '</div>');
+  if(db.length)al.push('<div class="g-alert danger"><b>💰</b> ديون غير مسددة بقيمة ' + debt.toLocaleString('ar-DZ') + ' ' + DEFAULT_CUR + ': ' + db.map(function(m){return esc(m.name)}).join('، ') + '</div>');
+  $('gAlerts').innerHTML=al.join('');
+  var rows=members.filter(function(m){
+    var s=statusOf(m);
+    if(filter==='active'&&s!=='active')return false;
+    if(filter==='soon'&&s!=='soon')return false;
+    if(filter==='expired'&&s!=='expired')return false;
+    if(filter==='debt'&&m.paid)return false;
+    if(query){var q=query.toLowerCase();if(m.name.toLowerCase().indexOf(q)<0&&String(m.phone||'').indexOf(q)<0)return false}
+    return true;
+  });
+  $('gEmpty').style.display=rows.length?'none':'block';
+  $('gBody').innerHTML=rows.map(function(m){
+    var d=daysLeft(m.end),st=statusOf(m);
+    var chip=st==='expired'?'<span class="chip bad">منتهي منذ '+Math.abs(d)+' يوم</span>':st==='soon'?'<span class="chip warn">'+d+' يوم متبقي</span>':'<span class="chip ok">'+d+' يوم</span>';
+    var pay=m.paid?'<span class="chip paid">مدفوع</span>':'<span class="chip debt">دين: '+(Number(m.price)||0).toLocaleString('ar-DZ')+' '+DEFAULT_CUR+'</span>';
+    return '<tr><td><div class="g-name"><div class="g-ava"><svg viewBox="0 0 24 24"><path d="M11.9997 12.8779C16.0197 12.878 19.4393 15.3848 20.7048 18.8828C21.0812 19.9234 20.2782 20.8962 19.2038 21.0137L18.9861 21.0264H5.0134L4.79562 21.0137C3.7213 20.8961 2.91743 19.9233 3.29367 18.8828C4.55905 15.3847 7.9797 12.8781 11.9997 12.8779ZM11.9997 14.6777C8.84467 14.6779 6.17462 16.5794 5.09152 19.2256H18.9079C17.8248 16.5793 15.1549 14.6778 11.9997 14.6777ZM12.2312 3.00586C14.6088 3.1264 16.4997 5.09239 16.4997 7.5L16.4939 7.73145C16.3734 10.1091 14.4073 11.9999 11.9997 12C9.59225 11.9998 7.62604 10.109 7.50558 7.73145L7.49973 7.5C7.49973 5.01485 9.51462 3.00021 11.9997 3L12.2312 3.00586ZM11.9997 4.7998C10.5087 4.80001 9.29953 6.00896 9.29953 7.5C9.29953 8.99104 10.5087 10.2 11.9997 10.2002C13.4908 10.2001 14.6999 8.99112 14.6999 7.5C14.6999 6.00888 13.4908 4.79989 11.9997 4.7998Z" fill="currentColor"/></svg></div><div><div class="nm">'+esc(m.name)+'</div><div class="ph">'+esc(m.phone||'')+'</div></div></div></td><td>'+esc(m.sport)+'</td><td style="font-variant-numeric:tabular-nums">'+fmtDate(m.start)+'</td><td style="font-variant-numeric:tabular-nums">'+fmtDate(m.end)+'</td><td>'+chip+'</td><td style="font-variant-numeric:tabular-nums">'+(Number(m.price)||0).toLocaleString('ar-DZ')+' '+DEFAULT_CUR+'</td><td>'+pay+'</td><td><div class="row-actions"><button class="ibtn pay" title="تبديل حالة الدفع" onclick="togglePaid('+m.id+')"><svg viewBox="0 0 24 24"><path d="M19.3027 5.9053C19.6542 5.55397 20.2247 5.55388 20.5761 5.9053C20.9273 6.25675 20.9273 6.82734 20.5761 7.17874L9.65911 18.0948C9.30773 18.4461 8.73814 18.446 8.38665 18.0948L3.42376 13.1328C3.0726 12.7814 3.07263 12.2118 3.42376 11.8604C3.77524 11.509 4.34575 11.5089 4.6972 11.8604L9.02239 16.1856L19.3027 5.9053Z" fill="currentColor"/></svg></button><button class="ibtn" title="تجديد الاشتراك (+ شهر)" onclick="renew('+m.id+')"><svg viewBox="0 0 24 24"><path d="M6.88048 6.89231C9.69226 4.08054 14.251 4.08054 17.0628 6.89231L16.2364 7.71871C15.7324 8.22268 16.0894 9.0844 16.8021 9.0844H19.7276C20.1694 9.0844 20.5276 8.72623 20.5276 8.2844V5.35891C20.5276 4.64619 19.6659 4.28926 19.1619 4.79323L18.3356 5.61952C14.8209 2.1048 9.12241 2.1048 5.60769 5.61952C2.09297 9.13424 2.09297 14.8327 5.60769 18.3474C9.12241 21.8622 14.8209 21.8622 18.3356 18.3474C19.4929 17.1902 20.2703 15.7937 20.6655 14.3163C20.7939 13.8361 20.5087 13.3428 20.0285 13.2143C19.5483 13.0859 19.055 13.3711 18.9266 13.8513C18.611 15.0314 17.9906 16.1469 17.0628 17.0746C14.251 19.8864 9.69226 19.8864 6.88048 17.0746C4.06871 14.2629 4.06871 9.70409 6.88048 6.89231Z" fill="currentColor"/></svg></button><button class="ibtn" title="تعديل" onclick="editM('+m.id+')"><svg viewBox="0 0 24 24"><path d="M18.0179 3.09998C18.3963 3.10003 18.7709 3.17491 19.1205 3.31971C19.4701 3.46454 19.7884 3.67614 20.056 3.94373C20.3237 4.21144 20.5362 4.52965 20.681 4.87928C20.8258 5.22887 20.8997 5.60423 20.8997 5.9828C20.8997 6.36118 20.8257 6.73591 20.681 7.08533C20.5362 7.43497 20.3237 7.75317 20.056 8.02088L17.639 10.4379L9.15756 18.9183C8.5296 19.5463 7.74274 19.992 6.8812 20.2074L4.21811 20.8734C3.91148 20.95 3.5871 20.8596 3.36362 20.6361C3.14017 20.4126 3.05063 20.0883 3.12729 19.7816L3.79233 17.1185C4.00771 16.257 4.45344 15.4701 5.08139 14.8422L15.9798 3.94373C16.5203 3.40346 17.2536 3.09998 18.0179 3.09998ZM19.0003 19.1C19.4972 19.1002 19.8997 19.5034 19.8997 20.0004C19.8995 20.4971 19.4971 20.8996 19.0003 20.8998H12.0003C11.5034 20.8998 11.1001 20.4973 11.0999 20.0004C11.0999 19.5033 11.5033 19.1 12.0003 19.1H19.0003ZM18.0179 4.89979C17.7309 4.89979 17.4553 5.01417 17.2523 5.21717L6.35385 16.1146C5.95661 16.5119 5.67469 17.01 5.53842 17.5551L5.23666 18.7631L6.44467 18.4613C6.98971 18.3251 7.48782 18.0431 7.8851 17.6459L18.7826 6.74744C18.883 6.64702 18.9635 6.52821 19.0179 6.39686C19.0723 6.26558 19.0999 6.1247 19.0999 5.9828C19.0999 5.84075 19.0723 5.69916 19.0179 5.56776C18.9635 5.43645 18.883 5.31757 18.7826 5.21717C18.6821 5.11678 18.5631 5.03716 18.432 4.9828C18.3008 4.92845 18.16 4.89983 18.0179 4.89979Z" fill="currentColor"/></svg></button><button class="ibtn del" title="حذف" onclick="askDel('+m.id+')"><svg viewBox="0 0 24 24"><path d="M8.10001 3C8.10001 2.50294 8.50295 2.1 9.00001 2.1H15C15.4971 2.1 15.9 2.50294 15.9 3C15.9 3.49706 15.4971 3.9 15 3.9H9.00001C8.50295 3.9 8.10001 3.49706 8.10001 3Z" fill="currentColor"/><path d="M10 15.9C9.50295 15.9 9.10001 15.4971 9.10001 15L9.10001 10C9.10001 9.50294 9.50295 9.1 10 9.1C10.4971 9.1 10.9 9.50294 10.9 10L10.9 15C10.9 15.4971 10.4971 15.9 10 15.9Z" fill="currentColor"/><path d="M13.1 15C13.1 15.4971 13.5029 15.9 14 15.9C14.4971 15.9 14.9 15.4971 14.9 15L14.9 10C14.9 9.50294 14.4971 9.1 14 9.1C13.5029 9.1 13.1 9.50294 13.1 10V15Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.10001 6C2.10001 5.50294 2.50295 5.1 3.00001 5.1H4.99152C4.99785 5.09993 5.00417 5.09993 5.01048 5.1H18.9895C18.9958 5.09993 19.0021 5.09993 19.0085 5.1H21C21.4971 5.1 21.9 5.50294 21.9 6C21.9 6.49706 21.4971 6.9 21 6.9H19.8281L18.8448 18.6993C18.7412 19.9432 17.7013 20.9 16.4531 20.9H7.54686C6.29865 20.9 5.25881 19.9432 5.15515 18.6993L4.17188 6.9H3.00001C2.50295 6.9 2.10001 6.49706 2.10001 6ZM5.97811 6.9L18.0219 6.9L17.0511 18.5498C17.0251 18.8608 16.7652 19.1 16.4531 19.1H7.54686C7.23481 19.1 6.97485 18.8608 6.94893 18.5498L5.97811 6.9Z" fill="currentColor"/></svg></button></div></td></tr>';
+  }).join('');
+}
+function toast(msg){var t=$('gToast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},2200)}
+var editingId=null;
+function openForm(m){
+  editingId=m?m.id:null;
+  $('mTitle').textContent=m?'تعديل بيانات العضو':'تسجيل عضو جديد';
+  $('fName').value=m?m.name:'';$('fPhone').value=m?m.phone||'':'';$('fSport').value=m?m.sport:'كمال أجسام';
+  $('fStart').value=m?m.start:todayISO();$('fPrice').value=m?m.price:'';$('fPaid').checked=m?!!m.paid:true;
+  $('ovForm').classList.add('show');setTimeout(function(){$('fName').focus()},80);
+}
+function closeForm(){$('ovForm').classList.remove('show')}
+$('gAdd').onclick=function(){openForm(null)};
+$('fSave').onclick=function(){
+  var name=$('fName').value.trim();if(!name){toast('أدخل اسم العضو');return}
+  var start=$('fStart').value||todayISO();
+  var data={name:name,phone:$('fPhone').value.trim(),sport:$('fSport').value,start:start,end:addMonths(start,1),price:Number($('fPrice').value)||0,paid:$('fPaid').checked};
+  if(editingId){var m=members.find(function(x){return x.id===editingId});for(var k in data)m[k]=data[k];toast('تم تحديث بيانات '+name)}
+  else{data.id=Date.now();members.push(data);toast('تم تسجيل '+name+' بنجاح')}
+  save();closeForm();render();
+};
+function editM(id){openForm(members.find(function(m){return m.id===id}))}
+function askDel(id){var m=members.find(function(x){return x.id===id});$('delMsg').innerHTML='هل أنت متأكد من حذف <b style="color:#f2f2f5">'+esc(m.name)+'</b> نهائياً من السجل؟';$('delYes').onclick=function(){members=members.filter(function(x){return x.id!==id});save();render();$('ovDel').classList.remove('show');toast('تم حذف العضو')};$('ovDel').classList.add('show')}
+function renew(id){var m=members.find(function(x){return x.id===id});var base=m.end>todayISO()?m.end:todayISO();m.end=addMonths(base,1);m.paid=false;save();render();toast('تم تجديد اشتراك '+m.name+' لمدة شهر — سجّل الدفع عند استلامه')}
+function togglePaid(id){var m=members.find(function(x){return x.id===id});m.paid=!m.paid;save();render();toast(m.paid?'تم تسجيل دفع '+m.name:'تم تحويل '+m.name+' إلى قائمة المديونين')}
+$('gSearch').oninput=function(e){query=e.target.value.trim();render()};
+document.querySelectorAll('.g-fbtn').forEach(function(b){b.onclick=function(){document.querySelectorAll('.g-fbtn').forEach(function(x){x.classList.remove('on')});b.classList.add('on');filter=b.dataset.f;render()}});
+$('gExport').onclick=function(){
+  var csv='الاسم,الهاتف,الرياضة,بداية الاشتراك,نهاية الاشتراك,الأيام المتبقية,السعر,الحالة,الدفع\n';
+  members.forEach(function(m){var d=daysLeft(m.end);csv+=[m.name,m.phone||'',m.sport,m.start,m.end,d,m.price,d<0?'منتهي':d<=5?'ينتهي قريبا':'نشط',m.paid?'مدفوع':'دين'].join(',')+'\n'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='members-gym.csv';a.click();toast('تم تصدير ملف Excel');
+};
+var _d=new Date();
+$('gToday').textContent=_d.toLocaleDateString('ar-DZ',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+render();
+</script>
+</body>
+</html>
